@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Requirement Check</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+        }
+       .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+            color: #333;
+        }
+h2 {
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .form-select, .btn {
+ font-size: 16px;
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        .btn {
+            background: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+
+        }
+        .btn:hover {
+            background: #cc5500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <h2 class="mb-3">Visa Requirement Check</h2>
+    <form action="process.php" method="post">
+        <label for="country" class="form-label">Select your country:</label>
+        <select name="country" id="country" class="form-select">
+            <option value="">-- Select --</option>
+            <option value="U">United States</option>
+            <option value="C">Canada</option>
+            <option value="I">India</option>
+            <option value="UK">United Kingdom</option>
+            <option value="AUS">Australia</option>
+        </select>
+        <button type="submit" class="btn btn-primary w-100">Check Visa</button>
+    </form>
+</div>
+
+</body>
+</html>
