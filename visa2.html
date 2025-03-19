@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Application Form</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        input, select {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+        input:focus, select:focus {
+            border-color: #74ebd5;
+            box-shadow: 0 0 5px rgba(116, 235, 213, 0.5);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Visa Application</h2>
+        <form id="visaForm" action="process1.php" method="post">
+            <input type="text" id="name" name="name" placeholder="Full Name">
+            <input type="text" id="passport" name="passport" placeholder="Passport Number">
+            <select id="country" name="country">
+                <option value="">-- Select a Country --</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Canada">Canada</option>
+            </select>
+            <button type="submit">Apply for Visa</button>
+            <p id="message" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("visaForm").addEventListener("submit", function(event) {
+            var name = document.getElementById("name").value.trim();
+            var passport = document.getElementById("passport").value.trim();
+            var country = document.getElementById("country").value;
+            var message = document.getElementById("message");
+            
+            if (!name || !passport || !country) {
+                message.textContent = "All fields are required!";
+                event.preventDefault();
+                return;
+            }
+            
+            if (passport.length < 8 || passport.length > 10) {
+                message.textContent = "Invalid passport number!";
+                event.preventDefault();
+                return;
+            }
+        });
+    </script>
+</body>
+</html>
